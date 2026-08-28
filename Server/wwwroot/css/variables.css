@@ -1,0 +1,29 @@
+﻿:root {
+    --ironman-bg: #0b0c0d;
+    --ironman-bg-secondary: #101214;
+    --ironman-panel: #151719;
+    --ironman-panel-hover: #191c1f;
+    --ironman-panel-raised: #1c1f22;
+
+    --ironman-border: #292d31;
+    --ironman-border-light: #353a3f;
+
+    --ironman-red: #b73535;
+    --ironman-red-hover: #c44141;
+    --ironman-red-dark: #6f2020;
+    --ironman-red-muted: #8f3030;
+
+    --ironman-warning: #c48a32;
+    --ironman-success: #4d8a5a;
+
+    --ironman-text: #d8dadd;
+    --ironman-text-secondary: #a1a5a9;
+    --ironman-text-muted: #777d82;
+
+    --ironman-rule-standard: var(--ironman-success);
+    --ironman-rule-changed: var(--ironman-red);
+
+    --ironman-radius: 3px;
+    --ironman-content-width: 1200px;
+    --ironman-transition: 140ms ease;
+}

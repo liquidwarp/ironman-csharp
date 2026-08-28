@@ -1,0 +1,122 @@
+﻿.ironman-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 38px;
+    padding: 0 18px;
+
+    border: 1px solid var(--ironman-border-light);
+    border-radius: var(--ironman-radius);
+    background: var(--ironman-panel);
+
+    color: var(--ironman-text);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+
+    cursor: pointer;
+    transition:
+            background var(--ironman-transition),
+            border-color var(--ironman-transition),
+            color var(--ironman-transition);
+}
+
+.ironman-button:hover {
+    background: var(--ironman-panel-hover);
+    border-color: #464c52;
+}
+
+.ironman-button-progress {
+    width: 16px !important;
+    height: 16px !important;
+
+    margin-right: 4px;
+}
+
+.ironman-button-progress .mud-progress-circular-circle {
+    stroke: currentColor;
+}
+
+.ironman-button-primary {
+    border-color: var(--ironman-red-dark);
+    background: var(--ironman-red-dark);
+}
+
+.ironman-button-primary:hover {
+    border-color: var(--ironman-red);
+    background: var(--ironman-red);
+}
+
+.ironman-toolbar-button {
+    min-height: 36px !important;
+    padding: 0 14px !important;
+
+    border: 1px solid var(--ironman-border);
+    border-radius: var(--ironman-radius);
+
+    color: var(--ironman-text-muted) !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+    transition:
+            color var(--ironman-transition),
+            background var(--ironman-transition),
+            border-color var(--ironman-transition);
+}
+
+.ironman-toolbar-button:hover {
+    background: var(--ironman-panel);
+    border-color: var(--ironman-border-light);
+    color: var(--ironman-text) !important;
+}
+
+.ironman-toolbar-button .mud-button-start-icon {
+    color: var(--ironman-text-muted) !important;
+}
+
+.ironman-toolbar-button:hover .mud-button-start-icon {
+    color: var(--ironman-text) !important;
+}
+
+.ironman-save-button {
+    min-height: 36px !important;
+    margin-left: 6px;
+    padding: 0 16px !important;
+
+    border: 1px solid var(--ironman-red-dark) !important;
+    border-radius: var(--ironman-radius) !important;
+    background: var(--ironman-red-dark) !important;
+
+    color: var(--ironman-text) !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    letter-spacing: 1px !important;
+    text-transform: uppercase;
+
+    transition:
+            background var(--ironman-transition),
+            border-color var(--ironman-transition);
+}
+
+.ironman-save-button:hover {
+    border-color: var(--ironman-red) !important;
+    background: var(--ironman-red) !important;
+}
+
+.ironman-save-button:disabled {
+    opacity: 0.55;
+}
+
+.ironman-pagination-button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.ironman-pagination-button:disabled:hover {
+    background: var(--ironman-panel);
+    border-color: var(--ironman-border-light);
+}

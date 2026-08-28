@@ -1,0 +1,293 @@
+﻿/* -------------------------------------------------------
+   Section (ConfigSection.razor)
+------------------------------------------------------- */
+
+.ironman-config-section {
+    margin-top: 32px;
+
+    border: 1px solid var(--ironman-border);
+    border-radius: var(--ironman-radius);
+    background: var(--ironman-panel);
+
+    overflow: hidden;
+}
+
+.ironman-config-section-header {
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--ironman-border);
+    background: var(--ironman-bg-secondary);
+}
+
+.ironman-config-section-title {
+    margin: 0;
+
+    color: var(--ironman-text);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.ironman-config-section-description {
+    margin: 5px 0 0;
+
+    color: var(--ironman-text-muted);
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.ironman-config-settings {
+    display: flex;
+    flex-direction: column;
+}
+
+/* -------------------------------------------------------
+   Setting Row (ConfigSettingRow.razor)
+------------------------------------------------------- */
+
+.ironman-config-setting {
+    padding: 20px;
+    border-bottom: 1px solid var(--ironman-border);
+
+    transition:
+            background var(--ironman-transition),
+            border-color var(--ironman-transition);
+}
+
+.ironman-config-setting:last-child {
+    border-bottom: 0;
+}
+
+.ironman-config-setting:hover {
+    background: rgba(255, 255, 255, 0.012);
+}
+
+.ironman-config-setting-content {
+    width: 100%;
+    min-width: 0;
+}
+
+.ironman-config-setting-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+}
+
+.ironman-config-setting-title {
+    color: var(--ironman-text);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.35px;
+}
+
+.ironman-config-setting-description {
+    max-width: 900px;
+    margin-top: 5px;
+
+    color: var(--ironman-text-muted);
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+.ironman-config-setting-changed {
+    padding: 2px 6px;
+
+    border: 1px solid rgba(196, 138, 50, 0.35);
+    border-radius: 2px;
+    background: rgba(196, 138, 50, 0.08);
+
+    color: var(--ironman-warning);
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+.ironman-config-setting-control {
+    display: grid;
+    grid-template-columns: 150px minmax(220px, 1fr) 150px;
+
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    margin-top: 16px;
+}
+
+.ironman-config-number {
+    width: 150px !important;
+}
+
+.ironman-config-number .mud-input-outlined-border {
+    border-color: var(--ironman-border) !important;
+}
+
+.ironman-config-number:hover .mud-input-outlined-border {
+    border-color: var(--ironman-border-light) !important;
+}
+
+.ironman-config-number.mud-input-focused .mud-input-outlined-border {
+    border-color: var(--ironman-red) !important;
+}
+
+.ironman-config-setting-input {
+    display: flex;
+    align-items: center;
+
+    flex: 0 0 72px;
+
+    width: 72px;
+    min-width: 72px;
+}
+
+.ironman-config-setting-input .ironman-config-number {
+    width: 100% !important;
+}
+
+
+.ironman-config-setting-slider {
+    display: flex;
+    align-items: center;
+
+    flex: 1 1 auto;
+
+    min-width: 0;
+    width: 100%;
+}
+
+.ironman-config-setting-slider .ironman-config-slider {
+    width: 100% !important;
+}
+
+.ironman-config-slider {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.ironman-config-slider .mud-slider-track {
+    background: var(--ironman-border-light);
+}
+
+.ironman-config-slider .mud-slider-track-fill {
+    background: var(--ironman-red);
+}
+
+.ironman-config-slider .mud-slider-thumb {
+    background: var(--ironman-red);
+    box-shadow: none;
+}
+
+.ironman-config-slider:hover .mud-slider-thumb {
+    box-shadow: 0 0 0 5px rgba(183, 53, 53, 0.12);
+}
+
+.ironman-config-setting-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 6px;
+
+    width: 150px;
+    min-width: 150px;
+}
+
+.ironman-config-action {
+    width: 72px !important;
+    min-width: 72px !important;
+    height: 30px !important;
+    padding: 0 10px !important;
+
+    border: 1px solid var(--ironman-border) !important;
+    border-radius: 2px !important;
+
+    color: var(--ironman-text-muted) !important;
+    font-size: 9px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.5px !important;
+    text-transform: uppercase !important;
+}
+
+.ironman-config-action:hover:not(:disabled) {
+    border-color: var(--ironman-border-light) !important;
+    background: var(--ironman-panel-hover) !important;
+    color: var(--ironman-text) !important;
+}
+
+.ironman-config-action-undo:hover:not(:disabled) {
+    border-color: var(--ironman-warning) !important;
+    color: var(--ironman-warning) !important;
+}
+
+.ironman-config-action-default:hover:not(:disabled) {
+    border-color: var(--ironman-red) !important;
+    color: var(--ironman-red) !important;
+}
+
+/*
+   Don't use display:none here — visibility:hidden preserves
+   the button's space.
+*/
+
+.ironman-config-action.hidden {
+    visibility: hidden;
+}
+
+.ironman-config-setting-control .mud-switch {
+    margin: 0;
+}
+
+.ironman-config-setting-control .mud-switch .mud-switch-track {
+    background: var(--ironman-border-light);
+}
+
+.ironman-config-setting-control .mud-switch-checked .mud-switch-track {
+    background: var(--ironman-red-dark);
+}
+
+.ironman-config-setting-control .mud-switch-checked .mud-switch-thumb {
+    background: var(--ironman-red);
+}
+
+@media (max-width: 800px) {
+    .ironman-config-setting-control {
+        grid-template-columns: 120px minmax(180px, 1fr) 150px;
+    }
+
+    .ironman-config-number {
+        width: 120px !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .ironman-config-setting {
+        padding: 16px;
+    }
+
+    .ironman-config-setting-control {
+        grid-template-columns: 100px minmax(120px, 1fr) 150px;
+        gap: 10px;
+    }
+
+    .ironman-config-number {
+        width: 100px !important;
+    }
+}
+
+@media (max-width: 450px) {
+    .ironman-config-setting-control {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .ironman-config-number,
+    .ironman-config-slider {
+        width: 100% !important;
+    }
+
+    .ironman-config-setting-actions {
+        width: 100%;
+        min-width: 0;
+        justify-content: flex-start;
+    }
+}

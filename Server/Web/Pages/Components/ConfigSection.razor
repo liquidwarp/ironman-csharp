@@ -1,0 +1,32 @@
+﻿<section class="ironman-config-section">
+    <div class="ironman-config-section-header">
+        <div>
+            <h2 class="ironman-config-section-title">
+                @Title
+            </h2>
+
+            @if (!string.IsNullOrWhiteSpace(Description))
+            {
+                <p class="ironman-config-section-description">
+                    @Description
+                </p>
+            }
+        </div>
+    </div>
+    <div class="ironman-config-settings">
+        @ChildContent
+    </div>
+</section>
+
+@code {
+
+    [Parameter, EditorRequired]
+    public string Title { get; set; } = string.Empty;
+
+    [Parameter]
+    public string? Description { get; set; }
+
+    [Parameter, EditorRequired]
+    public RenderFragment ChildContent { get; set; } = null!;
+
+}

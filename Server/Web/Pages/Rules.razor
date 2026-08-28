@@ -1,0 +1,108 @@
+﻿@page "/ironman/rules"
+@layout MainLayout
+
+@using IronManServer.Helpers
+@using IronManServer.Web.Shared
+
+<div class="ironman-app">
+    <main class="ironman-content">
+        <section class="ironman-page-header">
+            <div class="ironman-page-eyebrow">Ironman · Rules</div>
+            <h1 class="ironman-page-title">Profile Rules</h1>
+            <p class="ironman-page-description">
+                The restrictions, consequences, and progression rules that
+                define the Ironman experience.
+            </p>
+        </section>
+
+        <section>
+            <div class="ironman-section-header">
+                <h2 class="ironman-section-title">Profile</h2>
+                <span class="ironman-section-description">Select a difficulty</span>
+            </div>
+            <div class="ironman-profile-tabs">
+                @foreach (var profile in WebProfileHelper.Profiles)
+                {
+                    <button type="button" class="ironman-profile-tab @(_selectedProfile == profile.Type ? "active" : "")" @onclick="() => SelectProfile(profile.Type)">
+                        <span class="ironman-profile-tab-badge">@profile.Badge</span>
+                        @profile.Name
+                    </button>
+                }
+            </div>
+        </section>
+
+        <section class="ironman-section">
+            <div class="ironman-grid-2">
+                <div class="ironman-panel ironman-profile-@SelectedProfileInfo.CssModifier">
+                    <div class="ironman-page-eyebrow">Selected Profile</div>
+                    <h2 class="ironman-profile-name">@SelectedProfileInfo.Name</h2>
+                    <div class="ironman-profile-subtitle">@SelectedProfileInfo.Subtitle</div>
+                    <p class="ironman-panel-description">@SelectedProfileInfo.Description</p>
+                    <div class="ironman-profile-risk">
+                        <div class="ironman-risk-label">Risk Level</div>
+                        <div class="ironman-risk-dots">
+                            @for (var i = 0; i < 5; i++)
+                            {
+                                <span class="ironman-risk-dot @(i < SelectedProfileInfo.RiskLevel ? "active" : "")"></span>
+                            }
+                        </div>
+                        <div class="ironman-risk-name">@SelectedProfileInfo.RiskName</div>
+                    </div>
+                </div>
+
+                <div class="ironman-panel ironman-home-philosophy">
+                    <div class="ironman-page-eyebrow">The Ironman Philosophy</div>
+                    <div class="ironman-philosophy-quote">
+                        Every restriction
+                        <br />
+                        has a purpose.
+                    </div>
+                    <p class="ironman-panel-description">
+                        Ironman rules are designed to make progression meaningful
+                        and ensure that failure carries real consequences.
+                    </p>
+                    <div class="ironman-philosophy-rule">
+                        <span>Earn it.</span>
+                        <span>Keep it.</span>
+                        <span>Risk it.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="ironman-section">
+            <div class="ironman-section-header">
+                <h2 class="ironman-section-title">Rules & Restrictions</h2>
+                <span class="ironman-section-description">@SelectedProfileInfo.Name profile</span>
+            </div>
+            <div class="ironman-rules">
+                @foreach (var group in SelectedRuleGroups)
+                {
+                    <div class="ironman-rule-group">
+                        <h3 class="ironman-rule-group-title">@group.Name</h3>
+                        <div class="ironman-rules-list">
+                            @foreach (var rule in group.Rules)
+                            {
+                                <div class="ironman-rule">
+                                    <span class="ironman-rule-name">@rule.Name</span>
+                                    <span class="ironman-rule-value @GetValueClass(rule)">@rule.Value</span>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+        </section>
+
+        <section class="ironman-section">
+            <div class="ironman-panel">
+                <div class="ironman-panel-title">A Note About Ironman</div>
+                <p class="ironman-panel-description">
+                    Ironman profiles are intentionally restrictive. The goal
+                    isn't to make Tarkov easier or harder for the sake of
+                    difficulty, but to make the decisions you make matter.
+                </p>
+            </div>
+        </section>
+    </main>
+</div>

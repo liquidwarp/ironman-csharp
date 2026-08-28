@@ -1,0 +1,94 @@
+﻿.mud-paper {
+    background-color: var(--ironman-panel) !important;
+    color: var(--ironman-text);
+}
+
+.mud-card {
+    background-color: var(--ironman-panel) !important;
+    border: 1px solid var(--ironman-border);
+    border-radius: var(--ironman-radius);
+    box-shadow: none !important;
+}
+
+.mud-input-outlined-border {
+    border-color: var(--ironman-border) !important;
+}
+
+.mud-input-outlined:hover .mud-input-outlined-border {
+    border-color: var(--ironman-border-light) !important;
+}
+
+.mud-input-outlined.mud-input-focused .mud-input-outlined-border {
+    border-color: var(--ironman-red) !important;
+}
+
+.mud-input-label {
+    color: var(--ironman-text-muted) !important;
+}
+
+.mud-input {
+    color: var(--ironman-text) !important;
+}
+
+.mud-table {
+    background: var(--ironman-panel) !important;
+    color: var(--ironman-text);
+}
+
+.mud-table-head {
+    background: var(--ironman-bg-secondary) !important;
+}
+
+.mud-table-head .mud-table-cell {
+    border-bottom: 1px solid var(--ironman-border) !important;
+
+    color: var(--ironman-text-muted) !important;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.mud-table-body .mud-table-cell {
+    border-bottom: 1px solid var(--ironman-border) !important;
+}
+
+.mud-table-row:hover {
+    background: var(--ironman-panel-hover) !important;
+}
+
+.mud-dialog {
+    border: 1px solid var(--ironman-border-light);
+    border-radius: var(--ironman-radius);
+    background: var(--ironman-panel) !important;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.55) !important;
+}
+
+.mud-dialog-title {
+    color: var(--ironman-text) !important;
+}
+
+.mud-dialog-content {
+    color: var(--ironman-text-secondary) !important;
+}
+
+.mud-popover,
+.mud-menu {
+    border: 1px solid var(--ironman-border) !important;
+    background: var(--ironman-panel-raised) !important;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.45) !important;
+}
+
+.mud-menu-item {
+    color: var(--ironman-text-secondary) !important;
+}
+
+.mud-menu-item:hover {
+    background: var(--ironman-panel-hover) !important;
+    color: var(--ironman-text) !important;
+}
+
+.mud-snackbar {
+    border: 1px solid var(--ironman-border-light);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45);
+}

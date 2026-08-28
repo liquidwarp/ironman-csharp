@@ -1,0 +1,378 @@
+﻿.ironman-status-profile-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    width: 100%;
+}
+
+.ironman-status-profile-card {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+
+    width: 100%;
+    min-width: 0;
+    min-height: 250px;
+
+    margin: 0;
+    padding: 24px;
+
+    border: 1px solid var(--ironman-border);
+    border-radius: var(--ironman-radius);
+    background: var(--ironman-panel);
+
+    color: var(--ironman-text);
+    font-family: inherit;
+    font-size: inherit;
+    line-height: normal;
+    text-align: left;
+
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+
+    transition:
+            background var(--ironman-transition),
+            border-color var(--ironman-transition),
+            transform var(--ironman-transition);
+}
+
+.ironman-status-profile-card:hover {
+    background: var(--ironman-panel-hover);
+    border-color: var(--ironman-border-light);
+    transform: translateY(-2px);
+}
+
+.ironman-status-profile-card-header {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    width: 100%;
+    min-width: 0;
+    margin: 0 0 28px;
+    gap: 20px;
+}
+
+.ironman-status-profile-card-header > div:first-child {
+    min-width: 0;
+    flex: 1;
+}
+
+.ironman-status-profile-card .ironman-profile-badge {
+    flex: 0 0 30px;
+    width: 30px;
+    height: 30px;
+    margin: 0;
+}
+
+.ironman-status-profile-type {
+    color: var(--profile-color);
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.ironman-status-profile-subtitle {
+    margin-top: 6px;
+
+    color: var(--ironman-text-muted);
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+}
+
+.ironman-status-profile-name {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    margin: 0 0 24px;
+
+    color: var(--ironman-text);
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 1.15;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ironman-status-profile-level {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    margin: 0;
+    padding: 16px 0 0;
+    border-top: 1px solid var(--ironman-border);
+
+    color: var(--ironman-text-muted);
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.ironman-status-profile-level span {
+    display: block;
+}
+
+.ironman-status-profile-level strong {
+    display: block;
+    margin: 0;
+
+    color: var(--ironman-text);
+    font-size: 19px;
+    line-height: 1;
+}
+
+.ironman-status-profile-footer {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    width: 100%;
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 1px solid var(--ironman-border);
+    gap: 12px;
+}
+
+.ironman-status-profile-footer span {
+    display: block;
+    min-width: 0;
+
+    color: var(--ironman-text-muted);
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: 0.4px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ironman-status-detail-name {
+    margin: 8px 0 2px;
+
+    color: var(--ironman-text);
+    font-size: 28px;
+    font-weight: 800;
+}
+
+.ironman-status-detail-username {
+    color: var(--ironman-text-muted);
+    font-size: 11px;
+}
+
+.ironman-status-level {
+    margin-top: 20px;
+}
+
+.ironman-status-level-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 12px;
+
+    color: var(--ironman-text-muted);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.ironman-status-level-header strong {
+    color: var(--ironman-text);
+    font-size: 28px;
+}
+
+.ironman-status-progress {
+    height: 6px;
+    overflow: hidden;
+    border-radius: 2px;
+    background: var(--ironman-border);
+}
+
+.ironman-status-progress-bar {
+    height: 100%;
+    background: var(--ironman-red);
+    transition: width 300ms ease;
+}
+
+.ironman-status-progress-label {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 7px;
+
+    color: var(--ironman-text-muted);
+    font-size: 10px;
+}
+
+.ironman-status-currency-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+}
+
+.ironman-status-stat-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 8px;
+}
+
+.ironman-status-stat {
+    position: relative;
+    min-height: 90px;
+    padding: 16px;
+
+    border: 1px solid var(--ironman-border);
+    border-radius: var(--ironman-radius);
+    background: var(--ironman-panel);
+}
+
+.ironman-status-stat-label {
+    display: block;
+    margin-bottom: 12px;
+
+    color: var(--ironman-text-muted);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.ironman-status-stat strong {
+    display: block;
+    color: var(--ironman-text);
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.ironman-status-stat-symbol {
+    position: absolute;
+    right: 14px;
+    bottom: 13px;
+
+    color: var(--ironman-text-muted);
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.ironman-status-condition {
+    padding: 4px 0;
+}
+
+.ironman-status-condition-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+
+    color: var(--ironman-text-muted);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.ironman-status-condition-header strong {
+    color: var(--ironman-text);
+}
+
+.ironman-status-condition-bar {
+    height: 5px;
+    overflow: hidden;
+    border-radius: 2px;
+    background: var(--ironman-border);
+}
+
+.ironman-status-condition-bar > div {
+    height: 100%;
+    background: var(--ironman-success);
+}
+
+.ironman-status-condition-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 13px 0;
+    border-bottom: 1px solid var(--ironman-border);
+
+    color: var(--ironman-text-muted);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.ironman-status-condition-row:last-child {
+    border-bottom: 0;
+}
+
+.ironman-status-condition-row strong {
+    color: var(--ironman-text);
+}
+
+.ironman-status-information {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.ironman-status-information > div {
+    padding: 14px;
+    border: 1px solid var(--ironman-border);
+    background: var(--ironman-bg-secondary);
+}
+
+.ironman-status-information span {
+    display: block;
+    margin-bottom: 7px;
+
+    color: var(--ironman-text-muted);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.ironman-status-information strong {
+    display: block;
+    color: var(--ironman-text);
+    font-size: 12px;
+    word-break: break-all;
+}
+
+@media (max-width: 900px) {
+    .ironman-status-profile-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .ironman-status-currency-grid,
+    .ironman-status-stat-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .ironman-status-information {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .ironman-status-profile-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ironman-status-currency-grid,
+    .ironman-status-stat-grid {
+        grid-template-columns: 1fr;
+    }
+}

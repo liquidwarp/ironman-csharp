@@ -1,0 +1,140 @@
+﻿[
+  {
+    "newId": "6a8c9581ea21c133b47d222e",
+    "parentId": "5795f317245977243854e041",
+    "newItemName": "Ironman Simple Case",
+    "itemTplToClone": "567143bf4bdc2d1a0f8b4567",
+    "addToFleaPriceDb": false,
+    "addToHandbook": false,
+    "addToWeaponShelf": false,
+    "fleaPriceRoubles": 100000000,
+    "handbookPriceRoubles": 100000000,
+    "locales": {
+      "en": {
+        "name": "Ironman Simple Case",
+        "shortName": "Ironman Simple Case",
+        "description": "For all ironman. A simple case for simple times."
+      }
+    },
+    "grid": {
+      "id": "6a8c9581ea21c133b47d222f",
+      "cellsH": 5,
+      "cellsV": 3
+    }
+  },
+  {
+    "newId": "6a8c9581ea21c133b47d2230",
+    "parentId": "5795f317245977243854e041",
+    "newItemName": "Ironman Stash Keeper",
+    "itemTplToClone": "59fb042886f7746c5005a7b2",
+    "addToFleaPriceDb": false,
+    "addToHandbook": false,
+    "addToWeaponShelf": false,
+    "fleaPriceRoubles": 100000000,
+    "handbookPriceRoubles": 100000000,
+    "locales": {
+      "en": {
+        "name": "Ironman Stash Keeper",
+        "shortName": "Ironman Stash Keeper",
+        "description": "For all ironman. The Stash Keeper. Meant to store a wider range of items."
+      }
+    },
+    "grid": {
+      "id": "6a8c9581ea21c133b47d2231",
+      "cellsH": 6,
+      "cellsV": 5
+    }
+  },
+  {
+    "newId": "6a8c9581ea21c133b47d2232",
+    "parentId": "5795f317245977243854e041",
+    "newItemName": "Ironman Simple Case II",
+    "itemTplToClone": "567143bf4bdc2d1a0f8b4567",
+    "addToFleaPriceDb": false,
+    "addToHandbook": false,
+    "addToWeaponShelf": false,
+    "fleaPriceRoubles": 100000000,
+    "handbookPriceRoubles": 100000000,
+    "locales": {
+      "en": {
+        "name": "Ironman Simple Case II",
+        "shortName": "Ironman Simple Case II",
+        "description": "For Ultimate or Hardcore ironman. A simple case for simple times."
+      }
+    },
+    "grid": {
+      "id": "6a8c9581ea21c133b47d2233",
+      "cellsH": 5,
+      "cellsV": 5
+    }
+  },
+  {
+    "newId": "6a8c9581ea21c133b47d2234",
+    "parentId": "5795f317245977243854e041",
+    "newItemName": "Ironman Stash Keeper II",
+    "itemTplToClone": "5c0a840b86f7742ffa4f2482",
+    "addToFleaPriceDb": false,
+    "addToHandbook": false,
+    "addToWeaponShelf": false,
+    "fleaPriceRoubles": 100000000,
+    "handbookPriceRoubles": 100000000,
+    "locales": {
+      "en": {
+        "name": "Ironman Stash Keeper II",
+        "shortName": "Ironman Stash Keeper II",
+        "description": "For Ultimate or Hardcore ironman. The Stash Keeper. Meant to store a wider range of items."
+      }
+    },
+    "grid": {
+      "id": "6a8c9581ea21c133b47d2235",
+      "cellsH": 10,
+      "cellsV": 10
+    }
+  },
+  {
+    "newId": "6a8c9581ea21c133b47d2236",
+    "parentId": "5795f317245977243854e041",
+    "newItemName": "Ironman Simple Case III",
+    "itemTplToClone": "567143bf4bdc2d1a0f8b4567",
+    "addToFleaPriceDb": false,
+    "addToHandbook": false,
+    "addToWeaponShelf": false,
+    "fleaPriceRoubles": 100000000,
+    "handbookPriceRoubles": 100000000,
+    "locales": {
+      "en": {
+        "name": "Ironman Simple Case III",
+        "shortName": "Ironman Simple Case III",
+        "description": "For only the most Hardcore ironman. A simple case for simple times."
+      }
+    },
+    "grid": {
+      "id": "6a8c9581ea21c133b47d2237",
+      "cellsH": 6,
+      "cellsV": 8
+    }
+  },
+  {
+    "newId": "6a8c9581ea21c133b47d2238",
+    "parentId": "5795f317245977243854e041",
+    "newItemName": "Ironman Stash Keeper III",
+    "itemTplToClone": "5c0a840b86f7742ffa4f2482",
+    "addToFleaPriceDb": false,
+    "addToHandbook": false,
+    "addToWeaponShelf": false,
+    "fleaPriceRoubles": 100000000,
+    "handbookPriceRoubles": 100000000,
+    "locales": {
+      "en": {
+        "name": "Ironman Stash Keeper III",
+        "shortName": "Ironman Stash Keeper III",
+        "description": "For only the most Hardcore ironman. The Stash Keeper. Meant to store a wider range of items."
+      }
+    },
+    "grid": {
+      "id": "6a8c9581ea21c133b47d2239",
+      "cellsH": 12,
+      "cellsV": 12
+    }
+  }
+]

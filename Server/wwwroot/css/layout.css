@@ -1,0 +1,299 @@
+﻿.ironman-app {
+    width: 100%;
+    min-height: 100vh;
+
+    background:
+            linear-gradient(rgba(255, 255, 255, 0.012) 1px, transparent 1px),
+            var(--ironman-bg);
+    background-size: 100% 4px;
+}
+
+.ironman-appbar {
+    height: 48px !important;
+    min-height: 48px !important;
+    padding: 0 20px !important;
+
+    background: rgba(11, 12, 13, 0.97) !important;
+    border-bottom: 1px solid var(--ironman-border);
+    box-shadow: none !important;
+
+    color: var(--ironman-text) !important;
+}
+
+.ironman-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    margin: 0;
+}
+
+.ironman-brand-mark {
+    position: relative;
+
+    width: 24px;
+    height: 24px;
+
+    border: 1px solid var(--ironman-red);
+    border-radius: 2px;
+
+    background: var(--ironman-red-dark);
+}
+
+.ironman-brand-mark::before {
+    content: "";
+
+    position: absolute;
+    inset: 5px;
+
+    border: 1px solid var(--ironman-red);
+    background: var(--ironman-bg);
+}
+
+.ironman-brand-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    min-width: 0;
+}
+
+.ironman-brand-title {
+    color: var(--ironman-text);
+
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    line-height: 1;
+}
+
+.ironman-brand-subtitle {
+    margin-top: 3px;
+
+    color: var(--ironman-text-muted);
+
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.ironman-drawer {
+    background: var(--ironman-panel) !important;
+    border-right: 1px solid var(--ironman-border) !important;
+    box-shadow: none !important;
+}
+
+.ironman-drawer .mud-drawer-content {
+    background: var(--ironman-panel) !important;
+}
+
+.ironman-drawer-header {
+    min-height: 68px !important;
+    padding: 18px 22px !important;
+
+    background: var(--ironman-bg-secondary) !important;
+    border-bottom: 1px solid var(--ironman-border);
+}
+
+.ironman-drawer-title {
+    display: flex;
+    flex-direction: column;
+}
+
+.ironman-drawer-title-main {
+    color: var(--ironman-text);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.ironman-drawer-title-line {
+    width: 28px;
+    height: 2px;
+    margin-top: 8px;
+
+    background: var(--ironman-red);
+}
+
+.ironman-main-content {
+    position: relative;
+
+    background: var(--ironman-bg) !important;
+    color: var(--ironman-text);
+
+    overflow: auto;
+}
+
+.ironman-main-content .ironman-content {
+    width: min(calc(100% - 40px), var(--ironman-content-width));
+    min-height: calc(100vh - 120px);
+    margin: 0 auto;
+    padding: 25px 0 60px;
+}
+
+.ironman-content-background {
+     position: fixed;
+     inset: 48px 0 0;
+
+     pointer-events: none;
+     z-index: -1;
+
+     background:
+             radial-gradient(
+                     circle at 50% 0%,
+                     rgba(183, 53, 53, 0.025),
+                     transparent 45%
+             ),
+             var(--ironman-bg);
+ }
+
+.ironman-main-content .content {
+    position: relative;
+    animation: ironman-content-enter 450ms ease-out both;
+}
+
+.ironman-main-content .no-animation-content {
+    position: relative;
+
+    width: min(calc(100% - 40px), var(--ironman-content-width));
+    min-height: calc(100vh - 120px);
+    margin: 0 auto;
+    padding: 40px 0 60px;
+}
+
+@keyframes ironman-content-enter {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.ironman-statusbar {
+    height: 52px !important;
+    min-height: 52px !important;
+    padding: 0 20px !important;
+
+    background: rgba(11, 12, 13, 0.97) !important;
+    border-top: 1px solid var(--ironman-border);
+    box-shadow: none !important;
+
+    color: var(--ironman-text) !important;
+}
+
+.ironman-status-options {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.ironman-checkbox {
+    margin: 0 !important;
+}
+
+.ironman-checkbox .mud-typography {
+    color: var(--ironman-text-muted) !important;
+    font-size: 10px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.ironman-checkbox .mud-icon-button {
+    color: var(--ironman-text-muted) !important;
+}
+
+.ironman-checkbox:hover .mud-typography {
+    color: var(--ironman-text) !important;
+}
+
+.ironman-pending-button {
+    min-height: 32px !important;
+    padding: 0 13px !important;
+
+    border: 1px solid rgba(196, 138, 50, 0.45) !important;
+    border-radius: var(--ironman-radius) !important;
+    background: rgba(196, 138, 50, 0.08) !important;
+
+    color: var(--ironman-warning) !important;
+    font-size: 10px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.8px !important;
+    text-transform: uppercase;
+
+    transition:
+            background var(--ironman-transition),
+            border-color var(--ironman-transition);
+}
+
+.ironman-pending-button:hover {
+    background: rgba(196, 138, 50, 0.14) !important;
+    border-color: rgba(196, 138, 50, 0.65) !important;
+}
+
+.ironman-pending-count {
+    margin-right: 6px;
+    color: var(--ironman-warning);
+}
+
+.ironman-clean-status {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    color: var(--ironman-text-muted);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+.ironman-status-indicator {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--ironman-success);
+}
+
+@media (max-width: 850px) {
+    .ironman-brand {
+        margin-right: 15px;
+    }
+
+    .ironman-main-content .ironman-content,
+    .ironman-main-content .no-animation-content {
+        width: calc(100% - 30px);
+        padding-top: 25px;
+    }
+
+    .ironman-status-options {
+        gap: 6px;
+    }
+}
+
+@media (max-width: 650px) {
+    .ironman-brand {
+        display: none;
+    }
+
+    .ironman-toolbar-button {
+        padding: 0 9px !important;
+    }
+
+    .ironman-status-options {
+        display: none;
+    }
+
+    .ironman-main-content .ironman-content,
+    .ironman-main-content .no-animation-content {
+        width: calc(100% - 24px);
+        padding-top: 20px;
+    }
+}

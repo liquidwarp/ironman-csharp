@@ -1,0 +1,56 @@
+﻿{
+  "ironman-level-15": {
+    "sender": "System",
+    "messageText": "Congratulations on reaching level 15! Please enjoy these slightly larger containers for hoarding your shit.",
+    "collectionTimeHours": 48,
+    "associatedEvent": "None",
+    "maxToSendPlayer": 1,
+    "items": [
+      {
+        "_id": "6a8cab14ea21c133b4813251",
+        "_tpl": "6a8c9581ea21c133b47d2232",
+        "upd": {
+          "StackObjectsCount": 1
+        },
+        "parentId": "6a8cab14ea21c133b4813253",
+        "slotId": "main"
+      },
+      {
+        "_id": "6a8cab14ea21c133b4813252",
+        "_tpl": "6a8c9581ea21c133b47d2234",
+        "upd": {
+          "StackObjectsCount": 1
+        },
+        "parentId": "6a8cab14ea21c133b4813253",
+        "slotId": "main"
+      }
+    ]
+  },
+  "ironman-level-25": {
+    "sender": "System",
+    "messageText": "Congratulations on reaching level 25! Please enjoy these slightly larger containers for hoarding your shit.",
+    "collectionTimeHours": 48,
+    "associatedEvent": "None",
+    "maxToSendPlayer": 1,
+    "items": [
+      {
+        "_id": "6a8cab14ea21c133b4813254",
+        "_tpl": "6a8c9581ea21c133b47d2236",
+        "upd": {
+          "StackObjectsCount": 1
+        },
+        "parentId": "6a8cab14ea21c133b4813256",
+        "slotId": "main"
+      },
+      {
+        "_id": "6a8cab14ea21c133b4813255",
+        "_tpl": "6a8c9581ea21c133b47d2238",
+        "upd": {
+          "StackObjectsCount": 1
+        },
+        "parentId": "6a8cab14ea21c133b4813256",
+        "slotId": "main"
+      }
+    ]
+  }
+}

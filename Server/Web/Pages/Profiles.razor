@@ -1,0 +1,271 @@
+﻿@page "/ironman/profiles"
+@layout MainLayout
+
+@using IronManServer.Helpers
+@using IronManServer.Models.Enums
+@using IronManServer.Web.Shared
+
+<div class="ironman-app">
+    <main class="ironman-content">
+        <section class="ironman-page-header">
+            <div class="ironman-page-eyebrow">Ironman · Profiles</div>
+            <h1 class="ironman-page-title">Profile Status</h1>
+            <p class="ironman-page-description">
+                View the current progression and statistics of Ironman
+                profiles on this server.
+            </p>
+        </section>
+
+        @if (_selectedProfile is null)
+        {
+            <section class="ironman-section">
+                <div class="ironman-section-header">
+                    <h2 class="ironman-section-title">Profiles</h2>
+                    <span class="ironman-section-description">@_profiles.Count profile(s)</span>
+                </div>
+                <div class="ironman-profile-tabs">
+                    <button type="button" class="ironman-profile-tab @GetFilterClass(null)" @onclick="() => SelectFilter(null)">
+                        <span class="ironman-profile-tab-badge">ALL</span>
+                        All
+                    </button>
+                    <button type="button" class="ironman-profile-tab @GetFilterClass(ProfileType.Standard)" @onclick="() => SelectFilter(ProfileType.Standard)">
+                        <span class="ironman-profile-tab-badge">I</span>
+                        Standard
+                    </button>
+                    <button type="button" class="ironman-profile-tab @GetFilterClass(ProfileType.Ultimate)" @onclick="() => SelectFilter(ProfileType.Ultimate)">
+                        <span class="ironman-profile-tab-badge">II</span>
+                        Ultimate
+                    </button>
+                    <button type="button" class="ironman-profile-tab @GetFilterClass(ProfileType.Hardcore)" @onclick="() => SelectFilter(ProfileType.Hardcore)">
+                        <span class="ironman-profile-tab-badge">III</span>
+                        Hardcore
+                    </button>
+                </div>
+            </section>
+
+            <section class="ironman-section">
+                @if (FilteredProfiles.Any())
+                {
+                    <div class="ironman-status-profile-grid">
+                        @foreach (var profile in FilteredProfiles)
+                        {
+                            <button type="button" class="ironman-status-profile-card ironman-profile-@profile.CssModifier" @onclick="() => SelectProfile(profile)">
+                                <div class="ironman-status-profile-card-header">
+                                    <div>
+                                        <div class="ironman-status-profile-type">@profile.ProfileName</div>
+                                        <div class="ironman-status-profile-subtitle">@profile.ProfileSubtitle</div>
+                                    </div>
+                                    <span class="ironman-profile-badge">@WebProfileHelper.GetInfo(profile.ProfileType).Badge</span>
+                                </div>
+                                <div class="ironman-status-profile-name">@profile.Nickname</div>
+                                <div class="ironman-status-profile-level">
+                                    <span>Level</span>
+                                    <strong>@profile.Level</strong>
+                                </div>
+                                <div class="ironman-status-profile-footer">
+                                    <span>@FormatNumber(profile.Roubles) ₽</span>
+                                    <span>@FormatNumber(profile.Kills) Kills</span>
+                                    <span>@FormatPercentage(profile.SurvivalRate)</span>
+                                </div>
+                            </button>
+                        }
+                    </div>
+                }
+                else
+                {
+                    <div class="ironman-panel">
+                        <div class="ironman-empty">No Ironman profiles found.</div>
+                    </div>
+                }
+            </section>
+        }
+        else
+        {
+            <section class="ironman-section">
+                <button type="button" class="ironman-button" @onclick="ReturnToProfiles">← Back to Profiles</button>
+            </section>
+
+            <section class="ironman-section">
+                <div class="ironman-grid-2">
+                    <div class="ironman-panel ironman-profile-@_selectedProfile.CssModifier">
+                        <div class="ironman-page-eyebrow">@_selectedProfile.ProfileName Profile</div>
+                        <h2 class="ironman-status-detail-name">@_selectedProfile.Nickname</h2>
+                        <div class="ironman-status-detail-username">@_selectedProfile.Username</div>
+                        <div class="ironman-profile-risk">
+                            <div class="ironman-risk-label">Risk Level</div>
+                            <div class="ironman-risk-dots">
+                                @for (var i = 0; i < 5; i++)
+                                {
+                                    <span class="ironman-risk-dot @(i < WebProfileHelper.GetInfo(_selectedProfile.ProfileType).RiskLevel ? "active" : "")"></span>
+                                }
+                            </div>
+                            <div class="ironman-risk-name">@WebProfileHelper.GetInfo(_selectedProfile.ProfileType).RiskName</div>
+                        </div>
+                    </div>
+
+                    <div class="ironman-panel">
+                        <div class="ironman-section-header">
+                            <h2 class="ironman-section-title">Character</h2>
+                            <span class="ironman-section-description">Progression</span>
+                        </div>
+                        <div class="ironman-status-level">
+                            <div class="ironman-status-level-header">
+                                <span>Level</span>
+                                <strong>@_selectedProfile.Level</strong>
+                            </div>
+                            <div class="ironman-status-progress">
+                                <div class="ironman-status-progress-bar" style="width: @_selectedProfile.Experience.Progress.ToString("0.##", System.Globalization.CultureInfo.InvariantCulture)%"></div>
+                            </div>
+                            <div class="ironman-status-progress-label">
+                                <span>@FormatNumber(_selectedProfile.Experience.ExperienceIntoLevel) XP</span>
+                                <span>@FormatNumber(_selectedProfile.Experience.ExperienceRequiredForLevel) XP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="ironman-section">
+                <div class="ironman-section-header">
+                    <h2 class="ironman-section-title">Currency</h2>
+                    <span class="ironman-section-description">Current holdings</span>
+                </div>
+                <div class="ironman-status-currency-grid">
+                    <div class="ironman-status-stat">
+                        <span class="ironman-status-stat-label">Roubles</span>
+                        <strong>@FormatNumber(_selectedProfile.Roubles)</strong>
+                        <span class="ironman-status-stat-symbol">₽</span>
+                    </div>
+                    <div class="ironman-status-stat">
+                        <span class="ironman-status-stat-label">Dollars</span>
+                        <strong>@FormatNumber(_selectedProfile.Dollars)</strong>
+                        <span class="ironman-status-stat-symbol">$</span>
+                    </div>
+                    <div class="ironman-status-stat">
+                        <span class="ironman-status-stat-label">Euros</span>
+                        <strong>@FormatNumber(_selectedProfile.Euros)</strong>
+                        <span class="ironman-status-stat-symbol">€</span>
+                    </div>
+                    <div class="ironman-status-stat">
+                        <span class="ironman-status-stat-label">GP Coins</span>
+                        <strong>@FormatNumber(_selectedProfile.GpCoins)</strong>
+                        <span class="ironman-status-stat-symbol">GP</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="ironman-section">
+                <div class="ironman-section-header">
+                    <h2 class="ironman-section-title">Raid Statistics</h2>
+                    <span class="ironman-section-description">Lifetime PMC statistics</span>
+                </div>
+                <div class="ironman-status-stat-grid">
+                    <div class="ironman-status-stat">
+                        <span class="ironman-status-stat-label">Raids</span>
+                        <strong>@FormatNumber(_selectedProfile.Raids)</strong>
+                    </div>
+                    <div class="ironman-status-stat">
+                        <span class="ironman-status-stat-label">Survived</span>
+                        <strong>@FormatNumber(_selectedProfile.SurvivedRaids)</strong>
+                    </div>
+                    <div class="ironman-status-stat">
+                        <span class="ironman-status-stat-label">Deaths</span>
+                        <strong>@FormatNumber(_selectedProfile.Deaths)</strong>
+                    </div>
+                    <div class="ironman-status-stat">
+                        <span class="ironman-status-stat-label">Kills</span>
+                        <strong>@FormatNumber(_selectedProfile.Kills)</strong>
+                    </div>
+                    <div class="ironman-status-stat">
+                        <span class="ironman-status-stat-label">Survival Rate</span>
+                        <strong>@FormatPercentage(_selectedProfile.SurvivalRate)</strong>
+                    </div>
+                </div>
+            </section>
+
+            <section class="ironman-section">
+                <div class="ironman-section-header">
+                    <h2 class="ironman-section-title">Character Condition</h2>
+                </div>
+                <div class="ironman-grid-2">
+                    <div class="ironman-panel">
+                        <div class="ironman-status-condition">
+                            <div class="ironman-status-condition-header">
+                                <span>Health</span>
+                                <strong>@_selectedProfile.Health.ToString("0.#") / @_selectedProfile.MaxHealth.ToString("0.#")</strong>
+                            </div>
+                            <div class="ironman-status-condition-bar">
+                                <div style="width: @(_selectedProfile.MaxHealth <= 0 ? 0 : Math.Clamp(_selectedProfile.Health / _selectedProfile.MaxHealth * 100, 0, 100))%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ironman-panel">
+                        <div class="ironman-status-condition-row">
+                            <span>Energy</span>
+                            <strong>@_selectedProfile.Energy.ToString("0.#")</strong>
+                        </div>
+                        <div class="ironman-status-condition-row">
+                            <span>Hydration</span>
+                            <strong>@_selectedProfile.Hydration.ToString("0.#")</strong>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="ironman-section">
+                <div class="ironman-section-header">
+                    <h2 class="ironman-section-title">Achievements</h2> 
+                    <span class="ironman-section-description"> @_selectedProfile.Achievements.Count achievements </span> 
+                </div>
+                @if (_selectedProfile.Achievements.Count > 0)
+                {
+                    <div class="ironman-achievement-list">
+                        @foreach (var achievement in _selectedProfile.Achievements)
+                        {
+                            <div class="ironman-achievement">
+                                <div class="ironman-achievement-content">
+                                    <div class="ironman-achievement-title">
+                                        @achievement.Type.GetTitle()
+                                    </div>
+                                    <div class="ironman-achievement-description">
+                                        @achievement.Type.GetDescription()
+                                    </div>
+                                </div>
+                                <div class="ironman-achievement-meta">
+                                    <span>@FormatAchievementDate(achievement.DateAchieved)</span> 
+                                    <span>Level @achievement.LevelAchieved</span>
+                                </div> </div>
+                        }
+                    </div>
+                }
+                else
+                {
+                    <div class="ironman-panel">
+                    <div class="ironman-empty">No achievements earned yet.</div> </div>
+                }
+            </section>
+
+            <section class="ironman-section">
+                <div class="ironman-panel">
+                    <div class="ironman-section-header">
+                        <h2 class="ironman-section-title">Profile Information</h2>
+                    </div>
+                    <div class="ironman-status-information">
+                        <div>
+                            <span>Profile ID</span>
+                            <strong>@_selectedProfile.ProfileId</strong>
+                        </div>
+                        <div>
+                            <span>Username</span>
+                            <strong>@_selectedProfile.Username</strong>
+                        </div>
+                        <div>
+                            <span>Profile</span>
+                            <strong>@_selectedProfile.ProfileName</strong>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        }
+    </main>
+</div>

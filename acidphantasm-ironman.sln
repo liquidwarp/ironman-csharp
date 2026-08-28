@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "acidphantasm-ironman-client", "Client\acidphantasm-ironman-client.csproj", "{BB2FCD08-B0F9-4929-AA5D-3F4260981FF4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "acidphantasm-ironman-server", "Server\acidphantasm-ironman-server.csproj", "{64EFEA16-203A-4DD6-A748-D5706CBA0578}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BB2FCD08-B0F9-4929-AA5D-3F4260981FF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB2FCD08-B0F9-4929-AA5D-3F4260981FF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB2FCD08-B0F9-4929-AA5D-3F4260981FF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB2FCD08-B0F9-4929-AA5D-3F4260981FF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64EFEA16-203A-4DD6-A748-D5706CBA0578}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64EFEA16-203A-4DD6-A748-D5706CBA0578}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64EFEA16-203A-4DD6-A748-D5706CBA0578}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64EFEA16-203A-4DD6-A748-D5706CBA0578}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

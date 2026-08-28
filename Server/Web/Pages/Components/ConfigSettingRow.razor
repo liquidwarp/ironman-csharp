@@ -1,0 +1,47 @@
+﻿<div class="ironman-config-setting">
+    <div class="ironman-config-setting-content">
+        <div class="ironman-config-setting-header">
+            <span class="ironman-config-setting-title">
+                @Title
+            </span>
+            @if (HasChanged)
+            {
+                <span class="ironman-config-setting-changed">
+                    Modified
+                </span>
+            }
+        </div>
+
+        <div class="ironman-config-setting-description">
+            @Description
+        </div>
+    </div>
+
+    <div class="ironman-config-setting-control">
+        <div class="ironman-config-setting-input">
+            @(NumberInput ?? Control)
+        </div>
+
+        <div class="ironman-config-setting-slider">
+            @Slider
+        </div>
+
+        <div class="ironman-config-setting-actions">
+            <MudButton
+                Variant="Variant.Outlined"
+                Class="@($"ironman-config-action ironman-config-action-undo {(HasChanged ? "" : "hidden")}")"
+                OnClick="OnUndo">
+                ↶ Undo
+            </MudButton>
+            @if (ShowDefaultButton)
+            {
+                <MudButton
+                    Variant="Variant.Outlined"
+                    Class="@($"ironman-config-action ironman-config-action-default {(CanRestoreDefault ? "" : "hidden")}")"
+                    OnClick="OnDefault">
+                    Default
+                </MudButton>
+            }
+        </div>
+    </div>
+</div>

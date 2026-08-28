@@ -1,0 +1,176 @@
+﻿.ironman-rule-group {
+    margin-bottom: 30px;
+}
+
+.ironman-rule-group-title {
+    margin: 0 0 10px;
+
+    color: var(--ironman-text-muted);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.ironman-rules {
+    width: 100%;
+}
+
+.ironman-rules-list {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+
+    overflow: hidden;
+
+    border: 1px solid var(--ironman-border);
+    border-radius: var(--ironman-radius);
+
+    background: var(--ironman-panel);
+}
+
+.ironman-rule {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+
+    padding: 15px 16px;
+    border-bottom: 1px solid var(--ironman-border);
+    background: var(--ironman-panel);
+}
+
+.ironman-rule:first-of-type {
+    border-top: 1px solid var(--ironman-border);
+}
+
+.ironman-rule-name {
+    color: var(--ironman-text);
+    font-weight: 600;
+}
+
+.ironman-rule-value {
+    color: var(--ironman-text-muted);
+    font-size: 12px;
+    font-weight: 700;
+    text-align: right;
+}
+
+.ironman-rule-value.standard {
+    color: var(--ironman-rule-standard);
+}
+
+.ironman-rule-value.changed,
+.ironman-rule-value.added {
+    color: var(--ironman-rule-changed);
+}
+
+.ironman-rule-value-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.ironman-rule-change {
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.ironman-rule-change.standard {
+    color: var(--ironman-red);
+}
+
+.ironman-rule-change.changed,
+.ironman-rule-change.added {
+    color: var(--ironman-success);
+}
+
+.ironman-rules-legend {
+    display: flex;
+    gap: 20px;
+    margin: -5px 0 25px;
+}
+
+.ironman-rules-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    color: var(--ironman-text-muted);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.ironman-rules-legend-marker {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+}
+
+.ironman-rules-legend-item.standard .ironman-rules-legend-marker {
+    background: var(--ironman-red);
+}
+
+.ironman-rules-legend-item.changed .ironman-rules-legend-marker,
+.ironman-rules-legend-item.added .ironman-rules-legend-marker {
+    background: var(--ironman-success);
+}
+
+.ironman-rule-legend {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.ironman-rule-legend-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.ironman-rule-legend-indicator {
+    flex: 0 0 auto;
+    width: 8px;
+    height: 8px;
+    margin-top: 6px;
+    border-radius: 50%;
+}
+
+.ironman-rule-legend-indicator.standard {
+    background: var(--ironman-red);
+    box-shadow: 0 0 10px rgba(183, 53, 53, 0.35);
+}
+
+.ironman-rule-legend-indicator.changed,
+.ironman-rule-legend-indicator.added {
+    background: var(--ironman-success);
+    box-shadow: 0 0 10px rgba(77, 138, 90, 0.35);
+}
+
+.ironman-rule-legend-title {
+    color: var(--ironman-text);
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.ironman-rule-legend-description {
+    margin-top: 3px;
+
+    color: var(--ironman-text-muted);
+    font-size: 0.8rem;
+    line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+    .ironman-rule {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 6px;
+    }
+}

@@ -1,0 +1,228 @@
+﻿@page "/ironman/config"
+@layout MainLayout
+@using IronManServer.Web.Pages.Components
+@using IronManServer.Web.Shared
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+
+<div class="ironman-app">
+    <main class="ironman-content">
+        <section class="ironman-page-header">
+            <div class="ironman-page-eyebrow">Ironman · Configuration</div>
+            <h1 class="ironman-page-title">Configuration</h1>
+            <p class="ironman-page-description">
+                Configure the progression and difficulty settings for Ironman profiles.
+            </p>
+        </section>
+
+        <ConfigSection Title="Standard" Description="Settings applied to Standard Ironman profiles.">
+            <ConfigSettingRow
+                Title="Skill Level Loss Chance"
+                Description="The percentage chance of losing skill levels when a Standard profile dies."
+                HasChanged="@IsChanged(ConfigManager.RuntimeConfig.Standard.ChanceOfSkillLevelLoss, ConfigManager.OriginalConfig.Standard.ChanceOfSkillLevelLoss)"
+                CanRestoreDefault="@(ConfigManager.RuntimeConfig.Standard.ChanceOfSkillLevelLoss != ConfigManager.DefaultConfig.Standard.ChanceOfSkillLevelLoss)"
+                ShowDefaultButton="@ShowDefaultButton"
+                OnUndo="@UndoStandardSkillLevelLoss"
+                OnDefault="@DefaultStandardSkillLevelLoss">
+                <NumberInput>
+                    <MudNumericField
+                        T="int"
+                        Value="@ConfigManager.RuntimeConfig.Standard.ChanceOfSkillLevelLoss"
+                        ValueChanged="@SetStandardSkillLevelLoss"
+                        Variant="Variant.Outlined"
+                        Margin="Margin.Dense"
+                        Min="0"
+                        Max="100"
+                        Class="ironman-config-number" />
+                </NumberInput>
+                <Slider>
+                    <MudSlider
+                        T="int"
+                        Value="@ConfigManager.RuntimeConfig.Standard.ChanceOfSkillLevelLoss"
+                        ValueChanged="@SetStandardSkillLevelLoss"
+                        Min="0"
+                        Max="100"
+                        Step="1"
+                        Class="ironman-config-slider" />
+                </Slider>
+            </ConfigSettingRow>
+
+            <ConfigSettingRow
+                Title="Player Level Loss Chance"
+                Description="The percentage chance of losing player levels when a Standard profile dies."
+                HasChanged="@IsChanged(ConfigManager.RuntimeConfig.Standard.ChanceOfPlayerLevelLoss, ConfigManager.OriginalConfig.Standard.ChanceOfPlayerLevelLoss)"
+                CanRestoreDefault="@(ConfigManager.RuntimeConfig.Standard.ChanceOfPlayerLevelLoss != ConfigManager.DefaultConfig.Standard.ChanceOfPlayerLevelLoss)"
+                ShowDefaultButton="@ShowDefaultButton"
+                OnUndo="@UndoStandardPlayerLevelLoss"
+                OnDefault="@DefaultStandardPlayerLevelLoss">
+                <NumberInput>
+                    <MudNumericField
+                        T="int"
+                        Value="@ConfigManager.RuntimeConfig.Standard.ChanceOfPlayerLevelLoss"
+                        ValueChanged="@SetStandardPlayerLevelLoss"
+                        Variant="Variant.Outlined"
+                        Margin="Margin.Dense"
+                        Min="0"
+                        Max="100"
+                        Class="ironman-config-number" />
+                </NumberInput>
+                <Slider>
+                    <MudSlider
+                        T="int"
+                        Value="@ConfigManager.RuntimeConfig.Standard.ChanceOfPlayerLevelLoss"
+                        ValueChanged="@SetStandardPlayerLevelLoss"
+                        Min="0"
+                        Max="100"
+                        Step="1"
+                        Class="ironman-config-slider" />
+                </Slider>
+            </ConfigSettingRow>
+        </ConfigSection>
+
+        <ConfigSection Title="Ultimate" Description="Settings applied to Ultimate Ironman profiles.">
+            <ConfigSettingRow
+                Title="Skill Level Loss Chance"
+                Description="The percentage chance of losing skill levels when an Ultimate profile dies."
+                HasChanged="@IsChanged(ConfigManager.RuntimeConfig.Ultimate.ChanceOfSkillLevelLoss, ConfigManager.OriginalConfig.Ultimate.ChanceOfSkillLevelLoss)"
+                CanRestoreDefault="@(ConfigManager.RuntimeConfig.Ultimate.ChanceOfSkillLevelLoss != ConfigManager.DefaultConfig.Ultimate.ChanceOfSkillLevelLoss)"
+                ShowDefaultButton="@ShowDefaultButton"
+                OnUndo="@UndoUltimateSkillLevelLoss"
+                OnDefault="@DefaultUltimateSkillLevelLoss">
+                <NumberInput>
+                    <MudNumericField
+                        T="int"
+                        Value="@ConfigManager.RuntimeConfig.Ultimate.ChanceOfSkillLevelLoss"
+                        ValueChanged="@SetUltimateSkillLevelLoss"
+                        Variant="Variant.Outlined"
+                        Margin="Margin.Dense"
+                        Min="0"
+                        Max="100"
+                        Class="ironman-config-number" />
+                </NumberInput>
+                <Slider>
+                    <MudSlider
+                        T="int"
+                        Value="@ConfigManager.RuntimeConfig.Ultimate.ChanceOfSkillLevelLoss"
+                        ValueChanged="@SetUltimateSkillLevelLoss"
+                        Min="0"
+                        Max="100"
+                        Step="1"
+                        Class="ironman-config-slider" />
+                </Slider>
+            </ConfigSettingRow>
+
+            <ConfigSettingRow
+                Title="Player Level Loss Chance"
+                Description="The percentage chance of losing player levels when an Ultimate profile dies."
+                HasChanged="@IsChanged(ConfigManager.RuntimeConfig.Ultimate.ChanceOfPlayerLevelLoss, ConfigManager.OriginalConfig.Ultimate.ChanceOfPlayerLevelLoss)"
+                CanRestoreDefault="@(ConfigManager.RuntimeConfig.Ultimate.ChanceOfPlayerLevelLoss != ConfigManager.DefaultConfig.Ultimate.ChanceOfPlayerLevelLoss)"
+                ShowDefaultButton="@ShowDefaultButton"
+                OnUndo="@UndoUltimatePlayerLevelLoss"
+                OnDefault="@DefaultUltimatePlayerLevelLoss">
+                <NumberInput>
+                    <MudNumericField
+                        T="int"
+                        Value="@ConfigManager.RuntimeConfig.Ultimate.ChanceOfPlayerLevelLoss"
+                        ValueChanged="@SetUltimatePlayerLevelLoss"
+                        Variant="Variant.Outlined"
+                        Margin="Margin.Dense"
+                        Min="0"
+                        Max="100"
+                        Class="ironman-config-number" />
+                </NumberInput>
+                <Slider>
+                    <MudSlider
+                        T="int"
+                        Value="@ConfigManager.RuntimeConfig.Ultimate.ChanceOfPlayerLevelLoss"
+                        ValueChanged="@SetUltimatePlayerLevelLoss"
+                        Min="0"
+                        Max="100"
+                        Step="1"
+                        Class="ironman-config-slider" />
+                </Slider>
+            </ConfigSettingRow>
+        </ConfigSection>
+
+        <ConfigSection Title="Hardcore" Description="Settings applied to Hardcore Ironman profiles.">
+            <ConfigSettingRow
+                Title="Skill Level Loss Chance"
+                Description="The percentage chance of losing skill levels when a Hardcore profile dies."
+                HasChanged="@IsChanged(ConfigManager.RuntimeConfig.Hardcore.ChanceOfSkillLevelLoss, ConfigManager.OriginalConfig.Hardcore.ChanceOfSkillLevelLoss)"
+                CanRestoreDefault="@(ConfigManager.RuntimeConfig.Hardcore.ChanceOfSkillLevelLoss != ConfigManager.DefaultConfig.Hardcore.ChanceOfSkillLevelLoss)"
+                ShowDefaultButton="@ShowDefaultButton"
+                OnUndo="@UndoHardcoreSkillLevelLoss"
+                OnDefault="@DefaultHardcoreSkillLevelLoss">
+                <NumberInput>
+                    <MudNumericField
+                        T="int"
+                        Value="@ConfigManager.RuntimeConfig.Hardcore.ChanceOfSkillLevelLoss"
+                        ValueChanged="@SetHardcoreSkillLevelLoss"
+                        Variant="Variant.Outlined"
+                        Margin="Margin.Dense"
+                        Min="0"
+                        Max="100"
+                        Class="ironman-config-number" />
+                </NumberInput>
+                <Slider>
+                    <MudSlider
+                        T="int"
+                        Value="@ConfigManager.RuntimeConfig.Hardcore.ChanceOfSkillLevelLoss"
+                        ValueChanged="@SetHardcoreSkillLevelLoss"
+                        Min="0"
+                        Max="100"
+                        Step="1"
+                        Class="ironman-config-slider" />
+                </Slider>
+            </ConfigSettingRow>
+
+            <ConfigSettingRow
+                Title="Player Level Loss Chance"
+                Description="The percentage chance of losing player levels when a Hardcore profile dies."
+                HasChanged="@IsChanged(ConfigManager.RuntimeConfig.Hardcore.ChanceOfPlayerLevelLoss, ConfigManager.OriginalConfig.Hardcore.ChanceOfPlayerLevelLoss)"
+                CanRestoreDefault="@(ConfigManager.RuntimeConfig.Hardcore.ChanceOfPlayerLevelLoss != ConfigManager.DefaultConfig.Hardcore.ChanceOfPlayerLevelLoss)"
+                ShowDefaultButton="@ShowDefaultButton"
+                OnUndo="@UndoHardcorePlayerLevelLoss"
+                OnDefault="@DefaultHardcorePlayerLevelLoss">
+                <NumberInput>
+                    <MudNumericField
+                        T="int"
+                        Value="@ConfigManager.RuntimeConfig.Hardcore.ChanceOfPlayerLevelLoss"
+                        ValueChanged="@SetHardcorePlayerLevelLoss"
+                        Variant="Variant.Outlined"
+                        Margin="Margin.Dense"
+                        Min="0"
+                        Max="100"
+                        Class="ironman-config-number" />
+                </NumberInput>
+                <Slider>
+                    <MudSlider
+                        T="int"
+                        Value="@ConfigManager.RuntimeConfig.Hardcore.ChanceOfPlayerLevelLoss"
+                        ValueChanged="@SetHardcorePlayerLevelLoss"
+                        Min="0"
+                        Max="100"
+                        Step="1"
+                        Class="ironman-config-slider" />
+                </Slider>
+            </ConfigSettingRow>
+        </ConfigSection>
+
+        <ConfigSection Title="Debug" Description="Options intended primarily for troubleshooting.">
+            <ConfigSettingRow
+                Title="Debug Losses"
+                Description="Log additional information when items, skill or player level losses are processed."
+                HasChanged="@IsChanged(ConfigManager.RuntimeConfig.DebugSettings.DebugLosses, ConfigManager.OriginalConfig.DebugSettings.DebugLosses)"
+                ShowDefaultButton="@ShowDefaultButton"
+                OnUndo="@UndoDebugLosses"
+                OnDefault="@DefaultDebugLosses">
+                <Control>
+                    <MudSwitch
+                        T="bool"
+                        Value="@ConfigManager.RuntimeConfig.DebugSettings.DebugLosses"
+                        ValueChanged="@SetDebugLosses"
+                        Color="Color.Primary" />
+                </Control>
+            </ConfigSettingRow>
+        </ConfigSection>
+    </main>
+</div>

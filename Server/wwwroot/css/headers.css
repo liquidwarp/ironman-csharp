@@ -1,0 +1,88 @@
+﻿.ironman-page-header {
+    margin-bottom: 36px;
+}
+
+.ironman-page-eyebrow {
+    margin-bottom: 8px;
+
+    color: var(--ironman-red);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.ironman-page-title {
+    margin: 0;
+
+    color: var(--ironman-text);
+    font-size: 34px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.ironman-page-description {
+    max-width: 700px;
+    margin: 10px 0 0;
+
+    color: var(--ironman-text-muted);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.ironman-hero {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--ironman-border);
+}
+
+.ironman-hero-title {
+    margin: 0;
+
+    color: var(--ironman-text);
+    font-size: clamp(42px, 7vw, 76px);
+    font-weight: 800;
+    letter-spacing: 6px;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.ironman-hero-title span {
+    color: var(--ironman-red);
+}
+
+.ironman-hero-subtitle {
+    margin: 14px 0 0;
+
+    color: var(--ironman-text-secondary);
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.ironman-hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    margin-top: 25px;
+}
+
+.ironman-hero-actions .ironman-button {
+    flex: 0 0 auto;
+}
+
+.ironman-hero-description {
+    max-width: 650px;
+    margin: 18px 0 0;
+
+    color: var(--ironman-text-muted);
+    line-height: 1.8;
+}
+
+@media (max-width: 600px) {
+    .ironman-hero-title {
+        font-size: 42px;
+    }
+}

@@ -1,0 +1,221 @@
+﻿@page "/ironman"
+@layout MainLayout
+
+@using IronManServer.Web.Shared
+
+<div class="ironman-app">
+    <main class="ironman-content">
+        <section class="ironman-hero">
+            <div class="ironman-page-eyebrow">Escape From Tarkov · Ironman</div>
+            <h1 class="ironman-hero-title">IRON<span>MAN</span></h1>
+            <div class="ironman-hero-subtitle">Tarkov without a safety net.</div>
+            <p class="ironman-hero-description">
+                An unforgiving progression system inspired by the Ironman
+                mode of Old School RuneScape. Earn your gear, survive your
+                mistakes, and accept the consequences of death.
+            </p>
+            <div class="ironman-hero-actions">
+                <a href="/ironman/rules" class="ironman-button ironman-button-primary">View Rules</a>
+                <a href="/ironman/config" class="ironman-button">Configuration</a>
+                <a href="/ironman/profiles" class="ironman-button">Profiles</a>
+            </div>
+        </section>
+
+        <section class="ironman-section">
+            <div class="ironman-section-header">
+                <h2 class="ironman-section-title">Ironman Profiles</h2>
+                <span class="ironman-section-description">Choose your level of risk</span>
+            </div>
+            <div class="ironman-profiles">
+                @foreach (var profile in Profiles)
+                {
+                    <article class="ironman-profile ironman-profile-@profile.CssModifier">
+                        <div class="ironman-profile-header">
+                            <div>
+                                <div class="ironman-profile-name">@profile.Name</div>
+                                <div class="ironman-profile-subtitle">@profile.Subtitle</div>
+                            </div>
+                            <span class="ironman-profile-badge">@profile.Badge</span>
+                        </div>
+                        <p class="ironman-profile-description">@profile.Description</p>
+                        <div class="ironman-profile-risk">
+                            <div class="ironman-risk-label">Risk Level</div>
+                            <div class="ironman-risk-dots">
+                                @for (var i = 0; i < 5; i++)
+                                {
+                                    <span class="ironman-risk-dot @(i < profile.RiskLevel ? "active" : "")"></span>
+                                }
+                            </div>
+                            <div class="ironman-risk-name">@profile.RiskName</div>
+                        </div>
+                    </article>
+                }
+            </div>
+        </section>
+        
+        <section class="ironman-section ironman-information-section">
+            <div class="ironman-panel ironman-information">
+                <div class="ironman-section-header">
+                    <h2 class="ironman-section-title">Before You Begin</h2>
+                    <span class="ironman-section-description">How Ironman profiles work</span>
+                </div>
+
+                <div class="ironman-information-content">
+                    <p>
+                        Ironman can remain installed regardless of which profile you are currently using.
+                        The Ironman rules and restrictions only apply to players using one of the Ironman
+                        profiles above. Vanilla or Modded SPT profiles are unaffected.
+                    </p>
+                    <p>
+                        Ironman profiles are intentionally more tedious and unforgiving than the standard
+                        experience. Expect stricter progression, greater restrictions, and harsher
+                        consequences for death.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="ironman-section">
+            <div class="ironman-grid-2">
+                <div class="ironman-panel">
+                    <div class="ironman-section-header">
+                        <h2 class="ironman-section-title">Release Notes</h2>
+                        <span class="ironman-section-description">Latest changes</span>
+                    </div>
+                    @if (FilteredReleases.Any())
+                    {
+                        <div class="ironman-releases ironman-releases-scroll">
+                            @foreach (var release in FilteredReleases)
+                            {
+                                <article class="ironman-release">
+                                    <div class="ironman-release-header">
+                                        <div class="ironman-release-version-wrap">
+                                            <span class="ironman-release-version">Version @release.Version</span>
+                                            @if (release.IsLatest)
+                                            {
+                                                <span class="ironman-release-latest">Latest</span>
+                                            }
+                                        </div>
+                                        <span class="ironman-release-date">@release.ReleaseDate</span>
+                                    </div>
+                                    @if (release.NewFeatures?.Any() ?? false)
+                                    {
+                                        <div class="ironman-release-category">
+                                            <div class="ironman-release-category-title features">New Features</div>
+                                            <ul class="ironman-release-items">
+                                                @foreach (var feature in release.NewFeatures)
+                                                {
+                                                    <li>@feature</li>
+                                                }
+                                            </ul>
+                                        </div>
+                                    }
+                                    @if (release.Changes?.Any() ?? false)
+                                    {
+                                        <div class="ironman-release-category">
+                                            <div class="ironman-release-category-title changes">Changes</div>
+                                            <ul class="ironman-release-items">
+                                                @foreach (var change in release.Changes)
+                                                {
+                                                    <li>@change</li>
+                                                }
+                                            </ul>
+                                        </div>
+                                    }
+                                    @if (release.BugFixes?.Any() ?? false)
+                                    {
+                                        <div class="ironman-release-category">
+                                            <div class="ironman-release-category-title fixes">Bug Fixes</div>
+                                            <ul class="ironman-release-items">
+                                                @foreach (var bugfix in release.BugFixes)
+                                                {
+                                                    <li>@bugfix</li>
+                                                }
+                                            </ul>
+                                        </div>
+                                    }
+                                    @if (release.KnownIssues?.Any() ?? false)
+                                    {
+                                        <div class="ironman-release-category">
+                                            <div class="ironman-release-category-title issues">Known Issues</div>
+                                            <ul class="ironman-release-items">
+                                                @foreach (var issue in release.KnownIssues)
+                                                {
+                                                    <li>@issue</li>
+                                                }
+                                            </ul>
+                                        </div>
+                                    }
+                                </article>
+                            }
+                        </div>
+                        @if (TotalReleasePages > 1)
+                        {
+                            <div class="ironman-pagination">
+                                <button class="ironman-button ironman-pagination-button" disabled="@(!CanGoToPreviousReleasesPage)" @onclick="GoToPreviousReleasesPage">Previous</button>
+                                <span class="ironman-pagination-status">Page @_releasesPage of @TotalReleasePages</span>
+                                <button class="ironman-button ironman-pagination-button" disabled="@(!CanGoToNextReleasesPage)" @onclick="GoToNextReleasesPage">Next</button>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <div class="ironman-empty">No release notes available.</div>
+                    }
+                </div>
+
+                <div class="ironman-panel ironman-update-panel">
+                    <div class="ironman-section-header">
+                        <h2 class="ironman-section-title">Server Version</h2>
+                    </div>
+                    @if (!ConfigManager.RuntimeConfig.ConfigAppSettings.AllowUpdateChecks)
+                    {
+                        <div class="ironman-update-status disabled">
+                            <div class="ironman-update-indicator disabled"></div>
+                            <div>
+                                <div class="ironman-update-title">Update Checks Disabled</div>
+                                <div class="ironman-update-description">Enable update checks to see if a newer version of Ironman is available.</div>
+                            </div>
+                        </div>
+                    }
+                    else if (_updateCheckInProgress)
+                    {
+                        <div class="ironman-update-status">
+                            <div class="ironman-update-indicator checking"></div>
+                            <div>
+                                <div class="ironman-update-title">Checking for updates</div>
+                                <div class="ironman-update-description">Checking the latest available version...</div>
+                            </div>
+                        </div>
+                    }
+                    else if (_updateAvailable)
+                    {
+                        <div class="ironman-update-status available">
+                            <div class="ironman-update-indicator"></div>
+                            <div>
+                                <div class="ironman-update-title">Update Available</div>
+                                <div class="ironman-update-description">A newer version of Ironman is available.</div>
+                            </div>
+                        </div>
+                        @if (_updateReleaseNotesText is not null)
+                        {
+                            <div class="ironman-update-notes-header">Latest Release Notes</div>
+                            <div class="ironman-update-notes ironman-releases-scroll">@_updateReleaseNotesText</div>
+                        }
+                        <a href="@_updateUrl" target="_blank" rel="nofollow noopener" class="ironman-button ironman-button-primary ironman-update-button">View Update</a>
+                    }
+                    else
+                    {
+                        <div class="ironman-update-status current">
+                            <div class="ironman-update-indicator"></div>
+                            <div>
+                                <div class="ironman-update-title">You're up to date</div>
+                                <div class="ironman-update-description">This server is running the latest version of Ironman.</div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
