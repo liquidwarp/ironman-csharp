@@ -31,7 +31,7 @@ public class LevelGiftService(
         [ProfileType.Hardcore] = new Dictionary<int, string>
         {
             [15] = "ironman-level-15",
-            [25] = "ironman-level-20"
+            [25] = "ironman-level-25"
         }
     };
 
