@@ -1,5 +1,18 @@
 ﻿[
   {
+    "Version": "1.0.1",
+    "ReleaseDate": "August 31, 2026",
+    "IsLatest": true,
+    "NewFeatures": [],
+    "Changes": [],
+    "BugFixes": [
+      "Resoluved Hardcore Repair cost being 5x server side and 3x client side - now both 3x as intended",
+      "Resolved Hardcore lv25 Gift being incorrect from changing its level requirement during dev",
+      "Resolved Hardcore level gift listing incorrect size on Rules page"
+    ],
+    "KnownIssues": []
+  },
+  {
     "Version": "1.0.0",
     "ReleaseDate": "August 25, 2026",
     "IsLatest": true,

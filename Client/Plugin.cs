@@ -12,7 +12,7 @@ using Patches.Skills;
 using Patches.Trader;
 using VersionCheck;
 
-[BepInPlugin("com.acidphantasm.ironman", "acidphantasm-ironman", "1.0.0")]
+[BepInPlugin("com.acidphantasm.ironman", "acidphantasm-ironman", "1.0.1")]
 public class Plugin : BaseUnityPlugin
 {
     private static Plugin _instance;

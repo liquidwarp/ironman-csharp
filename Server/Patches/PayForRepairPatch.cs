@@ -32,7 +32,7 @@ public class PayForRepairPatch : AbstractPatch
             return;
 
         var profileType = _profileTypeHelper.GetProfileType(sessionID);
-        var multiplier = GetInsuranceMultiplier(profileType);
+        var multiplier = GetRepairMultiplier(profileType);
 
         if (Math.Abs(multiplier - 1f) < 0.001)
             return;
@@ -40,12 +40,12 @@ public class PayForRepairPatch : AbstractPatch
         repairCost *= multiplier;
     }
 
-    private static float GetInsuranceMultiplier(ProfileType profileType)
+    private static float GetRepairMultiplier(ProfileType profileType)
     {
         return profileType switch
         {
             ProfileType.Ultimate => 2f,
-            ProfileType.Hardcore => 5f,
+            ProfileType.Hardcore => 3f,
             _ => 1f
         };
     }
