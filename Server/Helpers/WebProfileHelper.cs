@@ -119,7 +119,7 @@ public static class WebProfileHelper
                 [
                     new("Level Experience Gain", "2×", RuleChangeType.Changed),
                     new("Skill Experience Gain", "2×", RuleChangeType.Changed),
-                    new("Container Gift II", "6×5 & 9×10 Containers Gifted @ Lv15", RuleChangeType.Changed),
+                    new("Container Gift II", "5×5 & 10×10 Containers Gifted @ Lv15", RuleChangeType.Added),
                     new("Container Gift III", "6×8 & 12×12 Containers Gifted @ Lv25", RuleChangeType.Added),
                 ]),
                 new(
