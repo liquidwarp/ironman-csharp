@@ -21,18 +21,19 @@ public class LevelGiftService(
     ModHelper modHelper,
     JsonUtil jsonUtil) : IOnLoad
 {
+    // Every Ironman profile earns the same storage cases. Point a profile at its
+    // own table here if it should ever diverge.
+    private static readonly Dictionary<int, string> SharedLevelGifts = new()
+    {
+        [15] = "ironman-level-15",
+        [25] = "ironman-level-25"
+    };
+
     private readonly Dictionary<ProfileType, Dictionary<int, string>> _levelGifts = new()
     {
-        [ProfileType.Ultimate] = new Dictionary<int, string>
-        {
-            [15] = "ironman-level-15"
-        },
-
-        [ProfileType.Hardcore] = new Dictionary<int, string>
-        {
-            [15] = "ironman-level-15",
-            [25] = "ironman-level-25"
-        }
+        [ProfileType.Standard] = SharedLevelGifts,
+        [ProfileType.Ultimate] = SharedLevelGifts,
+        [ProfileType.Hardcore] = SharedLevelGifts
     };
 
     public Task OnLoadAsync(CancellationToken cancellationToken)

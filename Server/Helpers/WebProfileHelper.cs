@@ -23,6 +23,8 @@ public static class WebProfileHelper
                     new("Level Experience Gain", "1×"),
                     new("Skill Experience Gain", "1×"),
                     new("Container Gift", "5×3 & 6×5 Containers Gifted @ Start"),
+                    new("Container Gift II", "5×5 & 10×10 Containers Gifted @ Lv15"),
+                    new("Container Gift III", "6×8 & 12×12 Containers Gifted @ Lv25"),
                 ]),
                 new(
                     "Economy",
@@ -71,7 +73,6 @@ public static class WebProfileHelper
                 [
                     new("Level Experience Gain", "1.25×", RuleChangeType.Changed),
                     new("Skill Experience Gain", "1.25×", RuleChangeType.Changed),
-                    new("Container Gift II", "5×5 & 10×10 Containers Gifted @ Lv15", RuleChangeType.Added),
                 ]),
                 new(
                     "Economy",
@@ -117,8 +118,6 @@ public static class WebProfileHelper
                 [
                     new("Level Experience Gain", "2×", RuleChangeType.Changed),
                     new("Skill Experience Gain", "2×", RuleChangeType.Changed),
-                    new("Container Gift II", "5×5 & 10×10 Containers Gifted @ Lv15", RuleChangeType.Added),
-                    new("Container Gift III", "6×8 & 12×12 Containers Gifted @ Lv25", RuleChangeType.Added),
                 ]),
                 new(
                     "Economy",

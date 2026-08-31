@@ -13,7 +13,7 @@
       "en": {
         "name": "Ironman Simple Case",
         "shortName": "Ironman Simple Case",
-        "description": "For all ironman. A simple case for simple times."
+        "description": "A simple case for simple times."
       }
     },
     "grid": {
@@ -36,7 +36,7 @@
       "en": {
         "name": "Ironman Stash Keeper",
         "shortName": "Ironman Stash Keeper",
-        "description": "For all ironman. The Stash Keeper. Meant to store a wider range of items."
+        "description": "The Stash Keeper. Meant to store a wider range of items."
       }
     },
     "grid": {
@@ -59,7 +59,7 @@
       "en": {
         "name": "Ironman Simple Case II",
         "shortName": "Ironman Simple Case II",
-        "description": "For Ultimate or Hardcore ironman. A simple case for simple times."
+        "description": "A simple case for simple times."
       }
     },
     "grid": {
@@ -82,7 +82,7 @@
       "en": {
         "name": "Ironman Stash Keeper II",
         "shortName": "Ironman Stash Keeper II",
-        "description": "For Ultimate or Hardcore ironman. The Stash Keeper. Meant to store a wider range of items."
+        "description": "The Stash Keeper. Meant to store a wider range of items."
       }
     },
     "grid": {
@@ -105,7 +105,7 @@
       "en": {
         "name": "Ironman Simple Case III",
         "shortName": "Ironman Simple Case III",
-        "description": "For only the most Hardcore ironman. A simple case for simple times."
+        "description": "A simple case for simple times."
       }
     },
     "grid": {
@@ -128,7 +128,7 @@
       "en": {
         "name": "Ironman Stash Keeper III",
         "shortName": "Ironman Stash Keeper III",
-        "description": "For only the most Hardcore ironman. The Stash Keeper. Meant to store a wider range of items."
+        "description": "The Stash Keeper. Meant to store a wider range of items."
       }
     },
     "grid": {
