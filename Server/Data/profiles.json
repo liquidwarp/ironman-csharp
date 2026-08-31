@@ -253,7 +253,7 @@
               "completeTime": 0,
               "constructing": false,
               "lastRecipe": "",
-              "level": 1,
+              "level": 0,
               "passiveBonusesEnabled": true,
               "slots": [],
               "type": 3
@@ -3125,7 +3125,7 @@
               "completeTime": 0,
               "constructing": false,
               "lastRecipe": "",
-              "level": 1,
+              "level": 0,
               "passiveBonusesEnabled": true,
               "slots": [],
               "type": 3
