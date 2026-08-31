@@ -26,6 +26,7 @@ public class ItemService(
     private record StashConfig(MongoId GridId, int CellsV);
     private Dictionary<MongoId, StashConfig> StashConfigs { get; } = new()
     {
+        ["6a8a86040fc828233480b116"] = new StashConfig("6a8a9be42932412ff8c717b2", 25),
         ["6a8a86040fc828233480b117"] = new StashConfig("6a8a9be42932412ff8c717b3", 25),
         ["6a8a86040fc828233480b118"] = new StashConfig("6a8a9be42932412ff8c717b4", 20)
     };

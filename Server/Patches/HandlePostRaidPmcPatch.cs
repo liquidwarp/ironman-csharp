@@ -95,7 +95,7 @@ public class HandlePostRaidPmcPatch : AbstractPatch
         var roublesBeforeDeath = GetCurrencyBalance(preRaidProfile, ItemTpl.MONEY_ROUBLES);
         _profileStatusHelper.RecordRoubleBalance(sessionId, roublesBeforeDeath, level);
         
-        RemoveUnprotectedItems(preRaidProfile, profileType, sessionId);
+        RemoveUnprotectedItems(preRaidProfile, sessionId);
         AdjustCurrency(preRaidProfile, profileType, sessionId);
         
         switch (profileType)
@@ -222,7 +222,7 @@ public class HandlePostRaidPmcPatch : AbstractPatch
         }
     }
     
-    private static void RemoveUnprotectedItems(PmcData pmcProfile, ProfileType profileType, MongoId sessionId)
+    private static void RemoveUnprotectedItems(PmcData pmcProfile, MongoId sessionId)
     {
         var inventory = pmcProfile.Inventory;
         var items = inventory?.Items;
@@ -257,9 +257,6 @@ public class HandlePostRaidPmcPatch : AbstractPatch
                 continue;
 
             var price = _itemHelper.GetItemMaxPrice(item.Template);
-
-            if (profileType == ProfileType.Standard && price <= 100000)
-                continue;
 
             totalGearValueLost += price;
             if (price >= 1000000)

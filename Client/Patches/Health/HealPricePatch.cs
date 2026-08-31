@@ -24,7 +24,7 @@ internal class HealPricePatch : ModulePatch
 
         __result *= profileType switch
         {
-            ProfileType.Standard => 2f,
+            ProfileType.Standard => 5f,
             ProfileType.Ultimate => 5f,
             ProfileType.Hardcore => 50f,
             _ => 1f

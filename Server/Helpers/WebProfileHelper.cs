@@ -29,7 +29,7 @@ public static class WebProfileHelper
                     [
                         new("Insurance Cost", "1×"),
                         new("Base Repair Cost", "1×"),
-                        new("Therapist Healing Cost", "2×"),
+                        new("Therapist Healing Cost", "5×"),
                         new("Flea Market", "Disabled"),
                         new("Trader Purchases", "Limited")
                     ]),
@@ -37,7 +37,7 @@ public static class WebProfileHelper
                 new(
                     "Death",
                     [
-                        new("Loose Items", "Items valued over 100k lost"),
+                        new("Loose Items", "All items lost"),
                         new("Items in Containers", "Protected"),
                         new("Container Items", "Protected"),
                         new("Protected Currency Limit", "1m ₽ / 2k $ / 1k € / 50 GP"),
@@ -49,7 +49,7 @@ public static class WebProfileHelper
                     "Progression",
                     [
                         new("Starting Equipment", "Minimal"),
-                        new("Stash Size", "10×30"),
+                        new("Stash Size", "10×25"),
                         new("Death Downgrade", "No Downgrade"),
                         new("Scav Runs", "No Changes")
                     ])
@@ -76,8 +76,7 @@ public static class WebProfileHelper
                     "Economy",
                     [
                         new("Insurance Cost", "2×", RuleChangeType.Changed),
-                        new("Base Repair Cost", "2×", RuleChangeType.Changed),
-                        new("Therapist Healing Cost", "5×", RuleChangeType.Changed)
+                        new("Base Repair Cost", "2×", RuleChangeType.Changed)
                     ]),
 
                 new(
@@ -89,7 +88,6 @@ public static class WebProfileHelper
                 new(
                     "Death",
                     [
-                        new("Loose Items", "All items lost", RuleChangeType.Changed),
                         new("Protected Currency Limit", "500k ₽ / 1k $ / 500 € / 25 GP", RuleChangeType.Changed),
                         new("Skill Level Loss", "Up to 1 level", RuleChangeType.Added),
                         new("Experience Level Loss", "Up to 1 level", RuleChangeType.Added)
@@ -98,7 +96,6 @@ public static class WebProfileHelper
                 new(
                     "Progression",
                     [
-                        new("Stash Size", "10×25", RuleChangeType.Changed),
                         new("Death Downgrade", "Optionally downgrade to Standard", RuleChangeType.Changed),
                         new("Scav Runs", "Items are automatically sold at 75% value", RuleChangeType.Changed)
                     ])
@@ -139,7 +136,6 @@ public static class WebProfileHelper
                 new(
                     "Death",
                     [
-                        new("Loose Items", "All items lost", RuleChangeType.Changed),
                         new("Protected Currency Limit", "100k ₽", RuleChangeType.Changed),
                         new("Skill Level Loss", "Up to 3 levels", RuleChangeType.Changed),
                         new("Experience Level Loss", "Up to 3 levels", RuleChangeType.Changed)

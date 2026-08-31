@@ -1,5 +1,5 @@
 ﻿{
-  "ironman-profile_standard": "No Flea, Limited Trader Purchases, 2x Cost Therapist Healing, Minimal Starting Equipment, 10x30 Stash, Lose all items over 100k not inside a container on death (except up to 1m Roubles, 2k Dollars, 1k Euros, 50 GP coins)",
+  "ironman-profile_standard": "No Flea, Limited Trader Purchases, 5x Cost Therapist Healing, Minimal Starting Equipment, 10x25 Stash, Lose all items not inside a container on death (except up to 1m Roubles, 2k Dollars, 1k Euros, 50 GP coins)",
   "ironman-profile_ultimate": "No Flea, Limited Trader Purchases, 5x Cost Therapist Healing, Minimal Starting Equipment, 10x25 Stash, Personal Killed Body Loot Only, Lose all items not inside a container on death (except 500k Roubles, 1k Dollars, 500 Euros, 25 GP Coins), On Death: Lose all current skill and level progress, and up to 1 level - Optionally, permanently downgrade to Standard",
   "ironman-profile_hardcore": "No Flea, Limited Trader Purchases, No Therapist Healing, Minimal Starting Equipment, 10x20 Stash, Personal Killed Body Loot Only, Lose all items not inside a container on death (except 100k Roubles), On Death: Lose all current skill and level progress, and up to 3 levels - Optionally, permanently downgrade to Ultimate or Standard"
 }
