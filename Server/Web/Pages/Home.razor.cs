@@ -10,13 +10,15 @@ using Shared;
 using SPTarkov.Server.Core.Helpers.Server;
 using SPTarkov.Server.Core.Utils;
 using IronManServer.Config;
+using SPTarkov.Common.Models.Logging;
 using Range = SemanticVersioning.Range;
 using Version = SemanticVersioning.Version;
 
 public partial class Home
 {
     private const int ReleasesPageSize = 5;
-
+    
+    [Inject] private ISptLogger<Home> Logger { get; set; } = null!;
     [Inject] private FileUtil FileUtil { get; set; } = null!;
     [Inject] private JsonUtil JsonUtil { get; set; } = null!;
     [Inject] private ModHelper ModHelper { get; set; } = null!;
@@ -53,7 +55,6 @@ public partial class Home
     }
 
     private bool _updateCheckInProgress;
-    private static bool _alreadyCheckedForUpdate;
     private bool _updateAvailable;
     private string? _updateUrl;
     private string? _updateReleaseNotesText;
@@ -62,16 +63,14 @@ public partial class Home
     protected override async Task OnInitializedAsync()
     {
         ConfigManager.OnChange += HandleConfigChanged;
-        
-        if (ConfigManager.RuntimeConfig.ConfigAppSettings.AllowUpdateChecks && !_alreadyCheckedForUpdate)
+
+        if (ConfigManager.RuntimeConfig.ConfigAppSettings.AllowUpdateChecks)
         {
             _updateCheckInProgress = true;
 
             await CheckForUpdate();
 
             _updateCheckInProgress = false;
-
-            _alreadyCheckedForUpdate = true;
         }
 
         await LoadReleaseNotes();
@@ -150,7 +149,7 @@ public partial class Home
             Version latestVersion = new(release.Version);
             Version currentVersion = new ModMetadata().Version;
             Range currentVersionRange = new($"^{currentVersion.Major}.0.0");
-
+            
             if (!currentVersionRange.IsSatisfied(latestVersion))
                 return;
 

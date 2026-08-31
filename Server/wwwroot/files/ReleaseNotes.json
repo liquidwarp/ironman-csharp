@@ -6,6 +6,7 @@
     "NewFeatures": [],
     "Changes": [],
     "BugFixes": [
+      "Resolved Web update check not functioning",
       "Resolved Hardcore Repair cost being 5x server side and 3x client side - now both 3x as intended",
       "Resolved Hardcore lv25 Gift being incorrect from changing its level requirement during dev (thank you liquidwarp)",
       "Resolved Hardcore lv15 gift listing incorrect size on Rules page (thank you liquidwarp)"
@@ -15,7 +16,7 @@
   {
     "Version": "1.0.0",
     "ReleaseDate": "August 25, 2026",
-    "IsLatest": true,
+    "IsLatest": false,
     "NewFeatures": [
       "Initial Release"
     ],
