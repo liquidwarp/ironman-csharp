@@ -182,11 +182,11 @@ public class HandlePostRaidPmcPatch : AbstractPatch
         pmcProfile.Info.Level = newLevel;
     }
     
-    private static bool IsProtectedItem(Item item, Dictionary<MongoId, Item> itemsById)
+    private static bool IsProtectedItem(Item item, Dictionary<MongoId, Item> itemsById, HashSet<MongoId?> protectedRootIds)
     {
         List<MongoId> protectedBaseClasses = [
-            BaseClasses.SIMPLE_CONTAINER, 
-            BaseClasses.HIDEOUT_AREA_CONTAINER, 
+            BaseClasses.SIMPLE_CONTAINER,
+            BaseClasses.HIDEOUT_AREA_CONTAINER,
             BaseClasses.MOB_CONTAINER,
             BaseClasses.LOCKABLE_CONTAINER
         ];
@@ -198,6 +198,9 @@ public class HandlePostRaidPmcPatch : AbstractPatch
 
         while (true)
         {
+            if (protectedRootIds.Contains(current.Id))
+                return true;
+
             if (Enum.TryParse<EquipmentSlots>(current.SlotId, true, out _) ||
                 string.Equals(current.SlotId, "dogtag", StringComparison.OrdinalIgnoreCase))
                 return true;
@@ -242,6 +245,14 @@ public class HandlePostRaidPmcPatch : AbstractPatch
             inventory?.HideoutCustomizationStashId,
         };
 
+        // Quest item containers derive from Stash, not from any of the protected
+        // container base classes, so their contents need protecting by root id.
+        var protectedRootIds = new HashSet<MongoId?>
+        {
+            inventory?.QuestRaidItems,
+            inventory?.QuestStashItems,
+        };
+
         double totalGearValueLost = 0;
         var lostMillionPlusItem = false;
 
@@ -250,7 +261,7 @@ public class HandlePostRaidPmcPatch : AbstractPatch
             if (rootIds.Contains(item.Id))
                 continue;
 
-            if (IsProtectedItem(item, itemsById))
+            if (IsProtectedItem(item, itemsById, protectedRootIds))
                 continue;
 
             if (IsCurrency(item.Template))
