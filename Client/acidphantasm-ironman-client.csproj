@@ -22,6 +22,10 @@
         <TarkovPluginsSPTDir>$(TarkovDir)BepInEx\plugins\spt\</TarkovPluginsSPTDir>
         <TarkovManagedDir>$(TarkovDir)EscapeFromTarkov_Data\Managed\</TarkovManagedDir>
         <TarkovBepInExCoreDir>$(TarkovDir)BepInEx\core\</TarkovBepInExCoreDir>
+
+        <!-- Build only produces the release ZIP. Pass -p:DeployToTarkov=true to
+             also copy the build into the SPT install at $(TarkovDir). -->
+        <DeployToTarkov Condition=" '$(DeployToTarkov)' == '' ">false</DeployToTarkov>
     </PropertyGroup>
 
     <!-- References -->
@@ -110,10 +114,10 @@
             <WebAssets Include="$(ProjectDir)../Server/bin/Release/$(AssemblyName)/wwwroot/**/*.*" />
         </ItemGroup>
 
-        <!-- Copy to Tarkov plugin directory -->
-        <Copy SourceFiles="@(OutputDLL);@(License)" DestinationFolder="$(TarkovDir)BepInEx\plugins\$(AssemblyName)\" />
-        <Copy SourceFiles="@(ServerComponents)" DestinationFolder="$(TarkovDir)SPT_Runtime\user\mods\$(AssemblyName)\%(RecursiveDir)" />
-        <Copy SourceFiles="@(WebAssets)" DestinationFolder="$(TarkovDir)\SPT_Runtime\user\mods\$(AssemblyName)\wwwroot\%(RecursiveDir)" />
+        <!-- Copy to Tarkov plugin directory, only when DeployToTarkov is set -->
+        <Copy SourceFiles="@(OutputDLL);@(License)" DestinationFolder="$(TarkovDir)BepInEx\plugins\$(AssemblyName)\" Condition=" '$(DeployToTarkov)' == 'true' " />
+        <Copy SourceFiles="@(ServerComponents)" DestinationFolder="$(TarkovDir)SPT_Runtime\user\mods\$(AssemblyName)\%(RecursiveDir)" Condition=" '$(DeployToTarkov)' == 'true' " />
+        <Copy SourceFiles="@(WebAssets)" DestinationFolder="$(TarkovDir)\SPT_Runtime\user\mods\$(AssemblyName)\wwwroot\%(RecursiveDir)" Condition=" '$(DeployToTarkov)' == 'true' " />
 
         <!-- Create release ZIP -->
         <RemoveDir Directories="$(ProjectDir)release" />
