@@ -43,7 +43,7 @@ public static class WebProfileHelper
                         new("Items in Containers", "Protected"),
                         new("Container Items", "Protected"),
                         new("Quest Items", "Protected"),
-                        new("Protected Currency Limit", "1m ₽ / 2k $ / 1k € / 50 GP"),
+                        new("Protected Currency Limit", "2.5m ₽ / 5k $ / 2.5k € / 125 GP"),
                         new("Skill Loss", "Current Progress Lost"),
                         new("Experience Loss", "Current Progress Lost"),
                     ]),

@@ -347,10 +347,10 @@ public class HandlePostRaidPmcPatch : AbstractPatch
         return profileType switch
         {
             ProfileType.Standard => new CurrencyLimits(
-            Roubles: 1000000,
-            Dollars: 2000,
-            Euros: 1000,
-            GpCoins: 50),
+            Roubles: 2500000,
+            Dollars: 5000,
+            Euros: 2500,
+            GpCoins: 125),
 
             ProfileType.Ultimate => new CurrencyLimits(
             Roubles: 500000,
