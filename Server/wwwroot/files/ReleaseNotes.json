@@ -1,8 +1,19 @@
 ﻿[
   {
+    "Version": "1.0.2",
+    "ReleaseDate": "September 1, 2026",
+    "IsLatest": true,
+    "NewFeatures": [],
+    "Changes": [],
+    "BugFixes": [
+      "Resolved Fika Ultimate/Hardcore profiles not allowing corpse loot"
+    ],
+    "KnownIssues": []
+  },
+  {
     "Version": "1.0.1",
     "ReleaseDate": "August 31, 2026",
-    "IsLatest": true,
+    "IsLatest": false,
     "NewFeatures": [],
     "Changes": [],
     "BugFixes": [

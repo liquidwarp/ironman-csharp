@@ -12,7 +12,7 @@ using Patches.Skills;
 using Patches.Trader;
 using VersionCheck;
 
-[BepInPlugin("com.acidphantasm.ironman", "acidphantasm-ironman", "1.0.1")]
+[BepInPlugin("com.acidphantasm.ironman", "acidphantasm-ironman", "1.0.2")]
 public class Plugin : BaseUnityPlugin
 {
     private static Plugin _instance;
@@ -32,7 +32,7 @@ public class Plugin : BaseUnityPlugin
         
         new CreatePatch().Enable();
         new IsAvailablePatch().Enable();
-        new OnHealthApplyDamagePatch().Enable();
+        new ApplyDamagePatch().Enable();
         new OnDeadPatch().Enable();
         new ShowPatch().Enable();
         new OnGameSessionEndPatch().Enable();
